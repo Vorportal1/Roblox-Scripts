@@ -1,5 +1,6 @@
 local whitelist = {
 	"FunDude_GamesYT",
+    "nigger"
 }
 
 getgenv().whitelisted = false
@@ -294,6 +295,19 @@ getgenv().Shiny = nil
 
 getgenv().debounce = false
 
+local vals = {
+    --  V, Exponent
+        k = 3,   -- k = 1,000 // 10^exponent // 10^3 = 1,000
+        m = 6, -- m = 1,000,000 // 10^exponent // 10^6 = 1,000,000
+    }
+    
+    -- func("1k") will return 1,000
+local function abr(_abbr)
+            -- take the first part of the string, and the last part and separate them.
+    local num, lttr = tonumber(string.sub(_abbr, 1, -2)), string.sub(_abbr, -1)
+    return num * (10^vals[lttr]) -- multiply the number by the amount of 0's
+end
+
 local function Sell()
 	local b = a.Get()
 	local PetInventory = b.Inventory.Pet
@@ -301,6 +315,7 @@ local function Sell()
 		if petTable.id == getgenv().PetToSell and petTable.pt == getgenv().PetType and petTable.sh == getgenv().Shiny then
 			if getgenv().debounce == false then
                 getgenv().debounce = true
+
                 local args = {
                     [1] = petId,
                     [2] = getgenv().Price,
@@ -319,7 +334,11 @@ Converted["_Selling"].Activated:Connect(function()
 	
 	getgenv().PetToSell = tostring(BOOTH_FRAME["PetName"].Text)
 	getgenv().Quantity = tonumber(BOOTH_FRAME["Quantity"].Text)
-	getgenv().Price = tonumber(BOOTH_FRAME["Price"].Text)
+    if tonumber(BOOTH_FRAME["Price"].Text) == nil then
+        getgenv().Price = abr(BOOTH_FRAME["Price"].Text)
+    else
+        getgenv().Price = tonumber(BOOTH_FRAME["Price"].Text)
+    end
 	
 	Sell()
 end)
