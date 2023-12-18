@@ -1,6 +1,5 @@
 local whitelist = {
 	"FunDude_GamesYT",
-    "nigger"
 }
 
 getgenv().whitelisted = false
