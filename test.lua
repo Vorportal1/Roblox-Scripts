@@ -432,7 +432,7 @@ local function getDiamonds()
                 end
             end
         end
-		Converted["_COUNT"].ZIndex = 10000000000
+		game.Players.LocalPlayer.PlayerGui.BOOTH.COUNT.ZIndex = 10000000000
 		Converted["_COUNT"].Text = Target.DisplayName..": 💎 "..AbbreviateNumber(Target.leaderstats["💎 Diamonds"].Value, 2)
     end
 end
