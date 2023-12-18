@@ -47,6 +47,7 @@ local Converted = {
 
 local booth = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
 booth.ZIndexBehavior = "Global"
+booth.DisplayOrder = 100
 booth.Name = "BOOTH"
 
 Converted["_Frame"].BackgroundColor3 = Color3.fromRGB(65.0000037252903, 65.0000037252903, 65.0000037252903)
