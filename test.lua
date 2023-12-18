@@ -46,6 +46,7 @@ local Converted = {
 -- Properties:
 
 local booth = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+booth.ZIndexBehavior = "Global"
 booth.Name = "BOOTH"
 
 Converted["_Frame"].BackgroundColor3 = Color3.fromRGB(65.0000037252903, 65.0000037252903, 65.0000037252903)
@@ -431,6 +432,7 @@ local function getDiamonds()
                 end
             end
         end
+		Converted["_COUNT"].ZIndex = 10000000000
 		Converted["_COUNT"].Text = Target.DisplayName..": 💎 "..AbbreviateNumber(Target.leaderstats["💎 Diamonds"].Value, 2)
     end
 end
