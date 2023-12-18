@@ -442,4 +442,5 @@ spawn(getDiamonds)
 
 task.wait(1)
 game.Players.LocalPlayer.PlayerGui.BOOTH.DisplayOrder = 100
+print("Started...")
 
